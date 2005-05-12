@@ -7,7 +7,7 @@ use File::Temp;
 use Carp qw(confess);
 use base qw(autobox);
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub import {
 	my $class = shift;
@@ -114,6 +114,6 @@ at your option, any later version of Perl 5 you may have available.
 
 =head1 VERSION
 
-0.01
+0.02
 
 =cut
