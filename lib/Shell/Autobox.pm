@@ -7,7 +7,7 @@ use File::Temp;
 use Carp qw(confess);
 use base qw(autobox);
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub import {
 	my $class = shift;
@@ -84,7 +84,7 @@ e.g.
 
 	# or
 	
-	$foo->bar('--option1', '--option2, '<')->baz(...)
+	$foo->bar('--option1', '--option2', '<')->baz(...)
 
 The registered methods can also be called as regular functions e.g.
 
@@ -114,6 +114,6 @@ at your option, any later version of Perl 5 you may have available.
 
 =head1 VERSION
 
-0.02
+0.03
 
 =cut
