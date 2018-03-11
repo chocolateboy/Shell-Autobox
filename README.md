@@ -3,19 +3,17 @@
 [![CPAN version](https://badge.fury.io/pl/Shell-Autobox.svg)](http://badge.fury.io/pl/Shell-Autobox)
 [![build status](https://secure.travis-ci.org/chocolateboy/Shell-Autobox.svg)](http://travis-ci.org/chocolateboy/Shell-Autobox)
 
-call methods on native types
-
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [NAME](#name)
 - [SYNOPSIS](#synopsis)
 - [DESCRIPTION](#description)
-  - [EXPORT](#export)
+- [EXPORT](#export)
+- [VERSION](#version)
 - [SEE ALSO](#see-also)
 - [AUTHOR](#author)
 - [COPYRIGHT AND LICENSE](#copyright-and-license)
-- [VERSION](#version)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -29,7 +27,7 @@ Shell::Autobox - pipe Perl strings through shell commands
 use Shell::Autobox qw(xmllint);
 
 my $xml = '<foo bar="baz"><bar /><baz /></foo>';
-my $pretty = $xml->xmllint('--format');
+my $pretty = $xml->xmllint('--format -');
 ```
 
 # DESCRIPTION
@@ -50,9 +48,13 @@ use Shell::Autobox qw(cut);
 my $bar = cut("foo:bar:baz", "-d':' -f2");
 ```
 
-## EXPORT
+# EXPORT
 
 None by default.
+
+# VERSION
+
+0.40.0
 
 # SEE ALSO
 
@@ -62,16 +64,11 @@ None by default.
 
 # AUTHOR
 
-[chocolateboy](mailto:chocolate@span.org)
+[chocolateboy](mailto:chocolate@cpan.org)
 
 # COPYRIGHT AND LICENSE
 
-Copyright (c) 2005-2018 by chocolateboy
+Copyright (c) 2003-2018, chocolateboy.
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself, either Perl version 5.8.6 or,
-at your option, any later version of Perl 5 you may have available.
-
-# VERSION
-
-0.40.0
+This module is free software; you can redistribute it and/or modify it under the
+terms of the [Artistic License 2.0](http://www.opensource.org/licenses/artistic-license-2.0.php).

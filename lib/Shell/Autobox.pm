@@ -8,7 +8,7 @@ use base qw(autobox);
 use Carp qw(confess);
 use File::Temp;
 
-our $VERSION = '0.03';
+our $VERSION = '0.40.0';
 
 sub import {
     my $class  = shift;
@@ -83,7 +83,7 @@ Shell::Autobox - pipe Perl strings through shell commands
     use Shell::Autobox qw(xmllint);
 
     my $xml = '<foo bar="baz"><bar /><baz /></foo>';
-    my $pretty = $xml->xmllint('--format');
+    my $pretty = $xml->xmllint('--format -');
 
 =head1 DESCRIPTION
 
@@ -109,15 +109,17 @@ None by default.
 
 =over
 
-L<autobox>
-L<autobox::Core>
-L<Shell>
+=item * L<autobox>
+
+=item * L<autobox::Core>
+
+=item * L<Shell>
 
 =back
 
 =head1 AUTHOR
 
-chocolateboy <chocolate@span.org>
+chocolateboy <chocolate@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -129,6 +131,6 @@ at your option, any later version of Perl 5 you may have available.
 
 =head1 VERSION
 
-0.03
+0.40.0
 
 =cut
