@@ -105,6 +105,10 @@ The registered methods can also be called as regular functions e.g.
 
 None by default.
 
+=head1 VERSION
+
+0.40.0
+
 =head1 SEE ALSO
 
 =over
@@ -123,14 +127,9 @@ chocolateboy <chocolate@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2005-2018 by chocolateboy
+Copyright (c) 2005-2018 by chocolateboy.
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself, either Perl version 5.8.6 or,
-at your option, any later version of Perl 5 you may have available.
-
-=head1 VERSION
-
-0.40.0
+This is free software; you can redistribute it and/or modify it under the
+terms of the Artistic License 2.0.
 
 =cut
