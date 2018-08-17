@@ -1,10 +1,11 @@
-eval "use Test::Pod";
+#!/usr/bin/env perl
 
-if ($@) {
-    print "1..0 # Skip Test::Pod not installed", $/;
-    exit;
-}
+use strict;
+use warnings;
 
-my @PODS = qw#../blib#;
+use Test::More;
 
-all_pod_files_ok(all_pod_files(@PODS));
+my $min_tp = '1.41'; # http://justatheory.com/computers/programming/perl/sane-pod-links.html
+eval "use Test::Pod $min_tp";
+plan skip_all => "Test::Pod $min_tp required for testing POD" if ($@);
+all_pod_files_ok();
