@@ -19,20 +19,19 @@ sub import {
             my $input = shift;
             my $args = join ' ', @_;
             my $maybe_args = length($args) ? " $args" : '';
-            my $stdin = (defined($input) && length($input)) ? \$input : undef;
             my $command = "$program$maybe_args";
-            my ($stdout, $stderr);
+            my $stdin = (defined($input) && length($input)) ? \$input : undef;
 
-            run3($command, $stdin, \$stdout, \$stderr, {
+            run3($command, $stdin, \my $stdout, \my $stderr, {
                 return_if_system_error => 1,
             });
 
-            my $maybe_error = (defined($stderr) && $stderr =~ /\S/) ? ": $stderr" : '';
-            my $message = "$command$maybe_error";
+            my $error = (defined($stderr) && $stderr =~ /\S/) ? ": $stderr" : '';
+            my $message = "$command$error";
 
             if ($?) {
                 confess "can't exec $message";
-            } elsif ($maybe_error) {
+            } elsif ($error) {
                 warn "error running $message";
             }
 
@@ -73,7 +72,7 @@ When a method corresponding to a registered command is called on a scalar, the s
 additional arguments are passed through as a space-delimited list of options, and - if no error occurs - the
 command's standard output is returned. This can then be piped into other commands.
 
-The registered methods can also be called as regular functions e.g.
+The registered methods can also be called as regular functions, e.g.
 
     use Shell::Autobox qw(cut);
 
