@@ -13,8 +13,8 @@ WriteMakefile(
     # compatibility in case module was previously installed to lib
     INSTALLDIRS     => ($] >= 5.011 ? 'site' : 'perl'),
     PREREQ_PM         => {
-        autobox          => '2.85',
-        'File::Temp'     => '0.16'
+        autobox       => '2.85',
+        'IPC::Run3'   => '0.048',
     },
     ABSTRACT_FROM        => 'lib/Shell/Autobox.pm',
     AUTHOR               => 'chocolateboy <chocolate@cpan.org>',

@@ -6,7 +6,7 @@ use warnings;
 use base qw(autobox);
 
 use Carp qw(confess);
-use File::Temp;
+use IPC::Run3 qw(run3);
 
 our $VERSION = '0.40.0';
 
@@ -19,46 +19,24 @@ sub import {
             my $input = shift;
             my $args = join ' ', @_;
             my $maybe_args = length($args) ? " $args" : '';
-            my $maybe_stdin = '';
-            my $stdout = File::Temp->new();
-            my $stderr = File::Temp->new();
-            my $stdin;
+            my $stdin = (defined($input) && length($input)) ? \$input : undef;
+            my $command = "$program$maybe_args";
+            my ($stdout, $stderr);
 
-            if (defined($input) && length($input)) {
-                $stdin = File::Temp->new();
-                print $stdin $input;
-                $maybe_stdin = " < $stdin";
-            }
+            run3($command, $stdin, \$stdout, \$stderr, {
+                return_if_system_error => 1,
+            });
 
-            my $command = sprintf(
-                '%s%s%s 2> %s > %s',
-                $program,
-                $maybe_args,
-                $maybe_stdin,
-                $stderr,
-                $stdout
-            );
+            my $maybe_error = (defined($stderr) && $stderr =~ /\S/) ? ": $stderr" : '';
+            my $message = "$command$maybe_error";
 
-            my ($output, $error);
-
-            my $fail = system $command;
-
-            {
-                local $/ = undef;
-                $error  = <$stderr>;
-                $output = <$stdout>;
-            }
-
-            my $maybe_error = $error =~ /\S/ ? ": $error" : '';
-            my $message = "$program$maybe_args$maybe_error";
-
-            if ($fail) {
+            if ($?) {
                 confess "can't exec $message";
             } elsif ($maybe_error) {
                 warn "error running $message";
             }
 
-            return $output;
+            return $stdout || '';
         };
 
         {
@@ -127,7 +105,7 @@ chocolateboy <chocolate@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2005-2020 by chocolateboy.
+Copyright (c) 2005-2021 by chocolateboy.
 
 This library is free software; you can redistribute it and/or modify it under the
 terms of the L<Artistic License 2.0|https://www.opensource.org/licenses/artistic-license-2.0.php>.

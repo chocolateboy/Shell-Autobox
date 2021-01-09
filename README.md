@@ -1,10 +1,9 @@
 # Shell::Autobox
 
-[![Build Status](https://travis-ci.org/chocolateboy/Shell-Autobox.svg)](https://travis-ci.org/chocolateboy/Shell-Autobox)
+[![Build Status](https://github.com/chocolateboy/Shell-Autobox/workflows/test/badge.svg)](https://github.com/chocolateboy/Shell-Autobox/actions?query=workflow%3Atest)
 [![CPAN Version](https://badge.fury.io/pl/Shell-Autobox.svg)](https://badge.fury.io/pl/Shell-Autobox)
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<!-- TOC -->
 
 - [NAME](#name)
 - [SYNOPSIS](#synopsis)
@@ -15,7 +14,7 @@
 - [AUTHOR](#author)
 - [COPYRIGHT AND LICENSE](#copyright-and-license)
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<!-- TOC END -->
 
 # NAME
 
@@ -68,7 +67,7 @@ None by default.
 
 # COPYRIGHT AND LICENSE
 
-Copyright © 2003-2020 by chocolateboy.
+Copyright © 2003-2021 by chocolateboy.
 
 This is free software; you can redistribute it and/or modify it under the terms of the
 [Artistic License 2.0](https://www.opensource.org/licenses/artistic-license-2.0.php).
