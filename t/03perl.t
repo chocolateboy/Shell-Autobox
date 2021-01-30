@@ -3,9 +3,11 @@
 use strict;
 use warnings;
 
-use Test::More tests => 16;
+use Test::More tests => 18;
 use Shell::Autobox qw(perl);
 
+is('print "";'->perl, '');
+is('print "0";'->perl, '0');
 is('print "hello, world"'->perl(), 'hello, world');
 is('print "hello, world"'->perl->perl('-pe', 'tr/a-z/A-Z/'), 'HELLO, WORLD');
 

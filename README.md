@@ -8,7 +8,7 @@
 - [NAME](#name)
 - [SYNOPSIS](#synopsis)
 - [DESCRIPTION](#description)
-- [EXPORT](#export)
+- [EXPORTS](#exports)
 - [VERSION](#version)
 - [SEE ALSO](#see-also)
 - [AUTHOR](#author)
@@ -26,7 +26,7 @@ Shell::Autobox - pipe Perl strings through shell commands
 use Shell::Autobox qw(xmllint);
 
 my $xml = '<foo bar="baz"><bar /><baz /></foo>';
-my $pretty = $xml->xmllint('--format -');
+my $pretty = $xml->xmllint('--format', '-');
 ```
 
 # DESCRIPTION
@@ -39,19 +39,19 @@ scalars.
 
 When a method corresponding to a registered command is called on a scalar, the
 scalar is passed as the command's standard input; additional arguments are
-passed through as a space-delimited list of options, and — if no error occurs —
+passed through as a space-separated list of options, and — if no error occurs —
 the command's standard output is returned. This can then be piped into other
 commands.
 
-The registered methods can also be called as regular functions, e.g.
+The registered methods can also be called as regular functions, e.g.:
 
 ```perl
 use Shell::Autobox qw(cut);
 
-my $bar = cut("foo:bar:baz", "-d':' -f2");
+my $bar = cut('foo:bar:baz', '-d:', '-f2');
 ```
 
-# EXPORT
+# EXPORTS
 
 None by default.
 

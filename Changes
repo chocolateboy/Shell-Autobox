@@ -1,5 +1,9 @@
 Revision history for Perl extension Shell::Autobox
 
+1.0.1 - TBD
+
+  - fix result when the command's output is "0" (don't default to "")
+
 1.0.0 - 2021-01-30
 
   - portability fix
