@@ -1,4 +1,4 @@
-Shell-Autobox version 0.40.0
+Shell-Autobox version 1.0.0
 ==========================
 
 Shell::Autobox - pipe Perl strings through shell commands
@@ -22,6 +22,7 @@ This module requires these other modules and libraries:
 
   autobox
   IPC::Run3
+  version
 
 COPYRIGHT AND LICENCE
 
