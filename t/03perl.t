@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 18;
+use Test::More tests => 19;
 use Shell::Autobox qw(perl);
 
 is('print "";'->perl, '');
@@ -32,4 +32,13 @@ ok ($@ =~ /Can't modify constant item in scalar assignment/);
     is('print "hello, world", undef'->perl('-w')->perl('-pe', 'tr/a-z/A-Z/'), 'HELLO, WORLD');
     is(perl('print "hello, world", undef', '-w'), 'hello, world');
     is(perl(perl('print "hello, world", undef', '-w'), '-pe', 'tr/a-z/A-Z/'), 'HELLO, WORLD');
+}
+
+# arrayref as stdin
+{
+    my $lines = [ map { "$_$/" } 1 .. 10 ];
+    my $want = join('', map { "$_$/" } 1, 4, 9, 16, 25, 36, 49, 64, 81, 100);
+    my $got = $lines->perl('-lpe', q{"\$_ = \$_ ** 2"}); # use double-quotes for Windows
+
+    is($got, $want);
 }

@@ -1,5 +1,9 @@
 Revision history for Perl extension Shell::Autobox
 
+1.1.0 - TBD
+
+  - allow the input to be an arrayref of lines
+
 1.0.1 - 2021-01-30
 
   - fix result when the command's output is "0" (don't default to "")
@@ -14,11 +18,11 @@ Revision history for Perl extension Shell::Autobox
 
 0.03 - 2005-05-12
 
-  - fixed documentation typo
+  - fix documentation typo
 
 0.02 - 2005-05-12
 
-  - added tests for warnings
+  - add tests for warnings
 
 0.01 - 2005-05-12
 

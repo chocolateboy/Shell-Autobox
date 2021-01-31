@@ -22,10 +22,10 @@ sub import {
             my $args = join ' ', @_;
             my $maybe_args = length($args) ? " $args" : '';
             my $command = "$program$maybe_args";
-            my $stdin = (defined($input) && length($input)) ? \$input : undef;
+            my $stdin = (defined($input) && ref($input) eq '') ? \$input : $input;
 
             run3($command, $stdin, \my $stdout, \my $stderr, {
-                return_if_system_error => 1,
+                return_if_system_error => 1, # don't die on error
             });
 
             my $error = (defined($stderr) && $stderr =~ /\S/) ? ": $stderr" : '';
@@ -46,7 +46,7 @@ sub import {
         }
     }
 
-    $class->SUPER::import(SCALAR => $caller);
+    $class->SUPER::import(SCALAR => $caller, ARRAY => $caller);
 }
 
 1;
