@@ -38,7 +38,7 @@ ok ($@ =~ /Can't modify constant item in scalar assignment/);
 {
     my $lines = [ map { "$_$/" } 1 .. 10 ];
     my $want = join('', map { "$_$/" } 1, 4, 9, 16, 25, 36, 49, 64, 81, 100);
-    my $got = $lines->perl('-lpe', q{"\$_ = \$_ ** 2"}); # use double-quotes for Windows
+    my $got = $lines->perl('-lpe', '$_ = $_ ** 2');
 
     is($got, $want);
 }

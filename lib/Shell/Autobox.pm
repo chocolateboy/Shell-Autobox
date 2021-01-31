@@ -18,13 +18,12 @@ sub import {
 
     for my $program (@_) {
         my $sub = sub {
-            my $input = shift;
-            my $args = join ' ', @_;
-            my $maybe_args = length($args) ? " $args" : '';
-            my $command = "$program$maybe_args";
+            my ($input, @args) = @_;
+            my @command = ($program, @args);
+            my $command = join(' ', @command);
             my $stdin = (defined($input) && ref($input) eq '') ? \$input : $input;
 
-            run3($command, $stdin, \my $stdout, \my $stderr, {
+            run3(\@command, $stdin, \my $stdout, \my $stderr, {
                 return_if_system_error => 1, # don't die on error
             });
 

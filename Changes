@@ -1,7 +1,8 @@
 Revision history for Perl extension Shell::Autobox
 
-1.1.0 - TBD
+2.0.0 - TBD
 
+  - process the command as a list rather than a string to handle shell quoting
   - allow the input to be an arrayref of lines
 
 1.0.1 - 2021-01-30

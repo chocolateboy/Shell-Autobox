@@ -36,10 +36,10 @@ Commands passed as arguments to the `use Shell::Autobox` statement are
 installed as subroutines in the calling package, and that package is then
 registered as the handler for methods called on strings, numbers or arrayrefs.
 
-When a method corresponding to a registered command is called, the value is
-passed as the command's standard input, additional arguments are passed through
-as a space-separated list of options, and — if no error occurs — the command's
-standard output is returned. This can then be piped into other commands.
+When a registered command is called as a method, the value is passed as the
+command's standard input, additional arguments are passed to the command, and —
+if no error occurs — the command's standard output is returned. This can then
+be piped into other commands.
 
 The registered methods can also be called as regular functions, e.g.:
 
