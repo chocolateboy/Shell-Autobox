@@ -54,28 +54,26 @@ __END__
 
 =head1 NAME
 
-Shell::Autobox - pipe Perl strings through shell commands
+Shell::Autobox - pipe Perl values through shell commands
 
 =head1 SYNOPSIS
 
     use Shell::Autobox qw(xmllint);
 
     my $xml = '<foo bar="baz"><bar /><baz /></foo>';
-    my $pretty = $xml->xmllint('--format', '-');
+    my $pretty = $xml->xmllint('--format -');
 
 =head1 DESCRIPTION
 
-Shell::Autobox provides an easy way to pipe Perl strings through shell commands.
+Shell::Autobox provides an easy way to pipe Perl values through shell commands.
 Commands passed as arguments to the C<use Shell::Autobox> statement are
 installed as subroutines in the calling package, and that package is then
-registered as the handler for methods called on ordinary (i.e. non-reference)
-scalars.
+registered as the handler for methods called on strings, numbers or arrayrefs.
 
-When a method corresponding to a registered command is called on a scalar, the
-scalar is passed as the command's standard input; additional arguments are
-passed through as a space-separated list of options, and - if no error occurs -
-the command's standard output is returned. This can then be piped into other
-commands.
+When a registered command is called as a method, the value is passed as the
+command's standard input, additional arguments are passed to the command, and -
+if no error occurs - the command's standard output is returned. This can then
+be piped into other commands.
 
 The registered methods can also be called as regular functions, e.g.:
 
@@ -98,6 +96,10 @@ None by default.
 =item * L<autobox>
 
 =item * L<autobox::Core>
+
+=item * L<IPC::Run3::Shell>
+
+=item * L<System::Sub>
 
 =item * L<Shell>
 
