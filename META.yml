@@ -1,5 +1,5 @@
 ---
-abstract: 'pipe Perl strings through shell commands'
+abstract: 'pipe Perl values through shell commands'
 author:
   - 'chocolateboy <chocolate@cpan.org>'
 build_requires:
@@ -25,5 +25,5 @@ requires:
 resources:
   bugtracker: https://github.com/chocolateboy/Shell-Autobox/issues
   repository: https://github.com/chocolateboy/Shell-Autobox
-version: v2.0.0
+version: v2.0.1
 x_serialization_backend: 'CPAN::Meta::YAML version 0.018'

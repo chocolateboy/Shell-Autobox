@@ -10,7 +10,7 @@ use IPC::Run3 qw(run3);
 
 # XXX this declaration must be on a single line
 # https://metacpan.org/pod/version#How-to-declare()-a-dotted-decimal-version
-use version; our $VERSION = version->declare('v2.0.0');
+use version; our $VERSION = version->declare('v2.0.1');
 
 sub import {
     my $class  = shift;
@@ -87,7 +87,7 @@ None by default.
 
 =head1 VERSION
 
-2.0.0
+2.0.1
 
 =head1 SEE ALSO
 
