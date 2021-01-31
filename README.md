@@ -55,7 +55,7 @@ None by default.
 
 # VERSION
 
-1.0.1
+2.0.0
 
 # SEE ALSO
 
